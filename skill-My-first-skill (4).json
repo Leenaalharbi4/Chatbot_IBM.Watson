@@ -1,0 +1,189 @@
+{
+  "intents": [
+    {
+      "intent": "Greetings",
+      "examples": [
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Help",
+      "examples": [
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "Yes please"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Thanks",
+      "examples": [
+        {
+          "text": "No, thanks"
+        },
+        {
+          "text": "No, thank you"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Movements",
+      "examples": [
+        {
+          "text": "Move forward"
+        },
+        {
+          "text": "Forward"
+        },
+        {
+          "text": "Move backward"
+        },
+        {
+          "text": "Backward"
+        },
+        {
+          "text": "Move to the right"
+        },
+        {
+          "text": "Move to the left"
+        },
+        {
+          "text": "Right"
+        },
+        {
+          "text": "Left"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Yes",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Help",
+      "dialog_node": "node_2_1594861417006",
+      "previous_sibling": "node_4_1594861234869"
+    },
+    {
+      "type": "standard",
+      "title": "No",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Thank you, Bye"
+              },
+              {
+                "text": "Thank you, See you soon"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Thanks",
+      "dialog_node": "node_4_1594861234869",
+      "previous_sibling": "node_1_1594860897898"
+    },
+    {
+      "type": "standard",
+      "title": "Move",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Mission Succeed, any thing else?"
+              },
+              {
+                "text": "Robot has been moved, any thing else?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Movements",
+      "dialog_node": "node_1_1594860897898",
+      "previous_sibling": "node_1_1594857108646"
+    },
+    {
+      "type": "standard",
+      "title": "Greet",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome, I am a robot. Where do you want me to move?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Greetings",
+      "dialog_node": "node_1_1594857108646"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
